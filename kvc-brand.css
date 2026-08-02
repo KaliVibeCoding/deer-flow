@@ -1,0 +1,199 @@
+/**
+ * KVC Brand CSS — Universal Override
+ * KaliVibeCoding Neon-Noir Design System
+ *
+ * Drop this into any KVC-branded repo.
+ * Works as a CSS override on top of any existing framework.
+ *
+ * Pink  #FF69B4 | Blue  #87CEEB | Gold  #FFD700
+ * BG    #1E1E24 | Card  #25252D | Text  #F0F0F0
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap");
+
+:root,
+[data-theme],
+[class*="theme-"] {
+  /* ── Core palette ─────────────────────────────────────────── */
+  --kvc-bg:        #1e1e24;
+  --kvc-bg-card:   #25252d;
+  --kvc-bg-hover:  #2e2e38;
+  --kvc-text:      #f0f0f0;
+  --kvc-muted:     #9ca3af;
+  --kvc-pink:      #ff69b4;
+  --kvc-pink-dark: #e0558f;
+  --kvc-blue:      #87ceeb;
+  --kvc-blue-dark: #5bb8e0;
+  --kvc-gold:      #ffd700;
+  --kvc-gold-dark: #e0b800;
+  --kvc-border:    rgba(240,240,240,0.10);
+  --kvc-success:   #10b981;
+  --kvc-danger:    #ef4444;
+  --kvc-warning:   #f59e0b;
+
+  /* ── Glow shadows ─────────────────────────────────────────── */
+  --kvc-glow-pink: 0 0 0 1px rgba(255,105,180,0.35), 0 0 24px rgba(255,105,180,0.18);
+  --kvc-glow-blue: 0 0 0 1px rgba(135,206,235,0.35), 0 0 24px rgba(135,206,235,0.18);
+  --kvc-glow-gold: 0 0 0 1px rgba(255,215,0,0.35),   0 0 24px rgba(255,215,0,0.18);
+
+  /* ── Typography ───────────────────────────────────────────── */
+  --kvc-font-heading: "Lobster", cursive;
+  --kvc-font-body:    "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --kvc-font-mono:    "Fira Code", ui-monospace, monospace;
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+html, body, #root, #app, #__next {
+  background-color: var(--kvc-bg) !important;
+  color: var(--kvc-text) !important;
+  font-family: var(--kvc-font-body) !important;
+}
+
+/* ── Headings ─────────────────────────────────────────────────── */
+h1, h2, h3,
+[class*="heading"], [class*="title"]:not([class*="page-title"]) {
+  font-family: var(--kvc-font-heading) !important;
+}
+
+/* ── Code ─────────────────────────────────────────────────────── */
+code, pre, kbd,
+[class*="code"], [class*="Code"],
+[class*="monaco"], [class*="codemirror"],
+[class*="ace_"], [class*="highlight"] {
+  font-family: var(--kvc-font-mono) !important;
+}
+
+/* ── Scrollbars ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--kvc-bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,105,180,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,105,180,0.55); }
+
+/* ── Selection ────────────────────────────────────────────────── */
+::selection { background: rgba(255,105,180,0.25); color: #fff; }
+
+/* ── Focus rings ──────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--kvc-pink) !important;
+  outline-offset: 2px !important;
+}
+
+/* ── Primary action buttons ───────────────────────────────────── */
+button[type="submit"],
+[class*="btn-primary"],
+[class*="button-primary"],
+[class*="ButtonPrimary"],
+[data-variant="primary"],
+[class*="submit-btn"],
+[class*="action-btn"] {
+  background: linear-gradient(135deg, var(--kvc-gold) 0%, var(--kvc-gold-dark) 100%) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  font-family: var(--kvc-font-body) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: var(--kvc-glow-gold) !important;
+  transition: opacity 0.2s, transform 0.15s !important;
+}
+button[type="submit"]:hover,
+[class*="btn-primary"]:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Cards / panels ───────────────────────────────────────────── */
+[class*="card"]:not([class*="card-body"]):not([class*="card-header"]):not([class*="card-footer"]),
+[class*="panel"]:not([class*="panel-body"]):not([class*="panel-header"]),
+[class*="modal-content"],
+[class*="dialog-content"],
+[class*="popover-content"] {
+  background: var(--kvc-bg-card) !important;
+  border: 1px solid var(--kvc-border) !important;
+  border-radius: 12px !important;
+}
+
+/* ── Sidebar / nav ────────────────────────────────────────────── */
+nav, aside, [class*="sidebar"], [class*="Sidebar"], [role="navigation"] {
+  background: #16161c !important;
+  border-right: 1px solid var(--kvc-border) !important;
+}
+
+/* ── Table rows ───────────────────────────────────────────────── */
+table { border-collapse: collapse !important; }
+tr:nth-child(even) { background: rgba(255,255,255,0.02) !important; }
+tr:hover { background: var(--kvc-bg-hover) !important; }
+th {
+  background: var(--kvc-bg-card) !important;
+  color: var(--kvc-pink) !important;
+  font-family: var(--kvc-font-body) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+td { border-bottom: 1px solid var(--kvc-border) !important; }
+
+/* ── Form inputs ──────────────────────────────────────────────── */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+textarea, select {
+  background: rgba(240,240,240,0.05) !important;
+  border: 1px solid var(--kvc-border) !important;
+  color: var(--kvc-text) !important;
+  border-radius: 8px !important;
+  font-family: var(--kvc-font-body) !important;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--kvc-pink) !important;
+  box-shadow: var(--kvc-glow-pink) !important;
+  outline: none !important;
+}
+input::placeholder, textarea::placeholder {
+  color: var(--kvc-muted) !important;
+  opacity: 1 !important;
+}
+
+/* ── Badge / tag chips ────────────────────────────────────────── */
+[class*="badge"], [class*="tag"], [class*="chip"],
+[class*="label"]:not(label) {
+  font-family: var(--kvc-font-body) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+}
+
+/* ── Success states ───────────────────────────────────────────── */
+[class*="success"], [data-status="success"], [class*="green"] {
+  color: var(--kvc-success) !important;
+}
+
+/* ── KVC watermark ────────────────────────────────────────────── */
+body::after {
+  content: "KVC";
+  position: fixed;
+  bottom: 8px;
+  right: 12px;
+  font-family: var(--kvc-font-heading);
+  font-size: 11px;
+  color: rgba(255,105,180,0.35);
+  pointer-events: none;
+  z-index: 99999;
+  letter-spacing: 0.05em;
+}
+
+/* ── Neon grid (empty states) ─────────────────────────────────── */
+[class*="empty"], [class*="welcome"], [class*="placeholder"],
+[class*="zero-state"], [class*="no-data"] {
+  background-image:
+    linear-gradient(rgba(255,105,180,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,105,180,0.03) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important;
+}
+
+/* ── Tooltip ──────────────────────────────────────────────────── */
+[role="tooltip"], [class*="tooltip"] {
+  background: var(--kvc-bg-card) !important;
+  border: 1px solid var(--kvc-border) !important;
+  color: var(--kvc-text) !important;
+  font-family: var(--kvc-font-body) !important;
+  border-radius: 8px !important;
+}
